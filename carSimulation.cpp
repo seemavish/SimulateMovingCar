@@ -59,14 +59,14 @@ void Car::pedal()
     }
     else
     {
-        std::cout << "Accelerate --> Already at its maximum speed." << endl;
+        throw "Tring to accelerate! Already at its maximum speed.";
     }
 }
 
 // store car brand and model names in brand and model variables, respectively
 Car::Car(string brand, string model) : Vehicle(brand), model(model) {}
 
-// destroy the car constructor to free up memory space
+// deallocate car constructors to free up memory space
 Car::~Car() {}
 
 // press brake to slow down the car
@@ -81,7 +81,7 @@ void Car::brake()
     else
     {
         speed = 0;
-        cout << "Trying to brake! The car has stopped \n";
+        throw "Trying to brake! The car has stopped ";
     }
 }
 
@@ -103,6 +103,6 @@ void Car::shift(int newGear)
     }
     else
     {
-        cout << "Invalid gear. Enter between 1 and 5." << endl;
+        throw "Invalid gear. Enter between 1 and 5.";
     }
 }
