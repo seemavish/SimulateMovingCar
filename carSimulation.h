@@ -32,7 +32,7 @@ public:
     Car(string brand, string model);
     virtual ~Car();
     
-    void accelerate();
+    void pedal();
     void brake();
     void startEngine();
     void shift(int newGear);

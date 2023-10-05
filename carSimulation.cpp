@@ -6,21 +6,27 @@
 
 using namespace std;
 
+// get gear from Vehicle
 int Vehicle::getGear()
 {
     return gear;
 }
 
+// get speed from Vehicle
 double Vehicle::getSpeed() const
 {
     return speed;
 }
 
+// set default speed to 0, gear to 0, and assign brand name to brand variable
 Vehicle::Vehicle(string brand) : speed(0), gear(0), brand(brand) {}
 
+// destructor to free up space
 Vehicle::~Vehicle() {}
 
-void Car::accelerate()
+// accelerate the car
+// there is a speed limit for every gear which is tracked using maxGearSpeed, which is initialized to 0
+void Car::pedal()
 {
     int maxGearSpeed = 0;
 
@@ -45,6 +51,7 @@ void Car::accelerate()
         maxGearSpeed = 0;
     }
 
+    // make sure we are not exceeding the gear speed limit
     if (speed < maxGearSpeed)
     {
         speed += 10;
@@ -56,12 +63,16 @@ void Car::accelerate()
     }
 }
 
-Car::Car(string brand, string model) : Vehicle(brand), maxCarSpeed(200), model(model) {}
+// store car brand and model names in brand and model variables, respectively
+Car::Car(string brand, string model) : Vehicle(brand), model(model) {}
 
+// destroy the car constructor to free up memory space
 Car::~Car() {}
 
+// press brake to slow down the car
 void Car::brake()
 {
+    // car is moving whem spead is greater than 0, else it stops
     if (speed > 0)
     {
         speed -= 10;
@@ -70,15 +81,18 @@ void Car::brake()
     else
     {
         speed = 0;
-        cout << "The car has stopped \n";
+        cout << "Trying to brake! The car has stopped \n";
     }
 }
 
+// start the engine and let's with gear 1
 void Car::startEngine(){
     gear = 1;
     cout << "Starting engine" << endl << "Gear set to " << gear << endl;
 }
 
+// change the gear when needed
+// gear can be shifted between 1 and 5
 void Car::shift(int newGear)
 {
     if (newGear >= 1 && newGear <= 5)
