@@ -1,8 +1,6 @@
 #include "carSimulation.h"
 
 #include <iostream>
-#include <string>
-#include <vector>
 
 using namespace std;
 
@@ -59,7 +57,7 @@ void Car::pedal()
     }
     else
     {
-        throw "Tring to accelerate! Already at its maximum speed.";
+        cout << "Tring to accelerate! Already at its maximum speed." << endl;
     }
 }
 
@@ -81,14 +79,16 @@ void Car::brake()
     else
     {
         speed = 0;
-        throw "Trying to brake! The car has stopped ";
+        cout << "The car has stopped " << endl;
     }
 }
 
 // start the engine and let's with gear 1
-void Car::startEngine(){
+void Car::startEngine()
+{
     gear = 1;
-    cout << "Starting engine" << endl << "Gear set to " << gear << endl;
+    cout << "Starting engine" << endl
+         << "Gear set to " << gear << endl;
 }
 
 // change the gear when needed
@@ -103,6 +103,6 @@ void Car::shift(int newGear)
     }
     else
     {
-        throw "Invalid gear. Enter between 1 and 5.";
+        cout << "Invalid gear. Enter between 1 and 5." << endl;
     }
 }
